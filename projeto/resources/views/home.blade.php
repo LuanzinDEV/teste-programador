@@ -1,33 +1,51 @@
 @extends('layouts.layout') 
 
-@section('titulo') Teste @endsection
+@section('titulo') Home  @endsection
 
 @section('conteudo')
-    <h2>Conteúdo da Página Inicial</h2>
-    <p>Bem-vindo à página inicial do meu site!</p>
-
-    <table>
-        <thead>
-            <tr>
-                <th><a href="{{ route('home', ['campo' => 'titulo', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">TITULO</a></th>
-                <th><a href="{{ route('home', ['campo' => 'descricao', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">DESCRIÇÃO</a></th>
-                <th><a href="{{ route('home', ['campo' => 'tipo', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">TIPO</a></th>
-                <th><a href="{{ route('home', ['campo' => 'status', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">STATUS</a></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach($vagas as $vaga)
+    <div class="conteudo-tabela">
+        <table class="tabela">
+            <thead class="cabecalho">
                 <tr>
-                    <td>{{ $vaga->titulo }}</td>
-                    <td>{{ $vaga->descricao }}</td>
-                    <td>{{ $vaga->tipo }}</td>
-                    <td>{{ $vaga->status }}</td>
+                    <th><a href="{{ route('home', ['campo' => 'titulo', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">TITULO</a></th>
+                    <th><a href="{{ route('home', ['campo' => 'descricao', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">DESCRIÇÃO</a></th>
+                    <th><a href="{{ route('home', ['campo' => 'tipo', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">TIPO</a></th>
+                    <th><a href="{{ route('home', ['campo' => 'status', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">STATUS</a></th>
+                    <th>AÇÕES</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach($vagas as $vaga)
+                    <tr class="linha">
+                        <td class="celula">{{ $vaga->titulo }}</td>
+                        <td class="celula">{{ $vaga->descricao }}</td>
+                        <td class="celula">{{ $vaga->tipo }}</td>
+                        <td class="celula">{{ $vaga->status }}</td>
+                        <td class="celula">
+                            <a href="#" class="acao visualizar" title="Visualizar">
+                                <i class="fa fa-eye"></i>
+                            </a>
+    
+                            <a href="#" class="acao editar" title="Editar">
+                                <i class="fa fa-edit"></i>
+                            </a>
+    
+                            <button type="button" class="acao excluir" title="Excluir" onclick="confirm('Tem certeza que deseja excluir?')">
+                                <i class="fa fa-trash"></i>
+                            </button>
+    
+                            <a href="#" class="acao candidatar" title="Candidatar-se">
+                                <i class="fa fa-check-circle"></i>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        {{ $vagas->links('pagination::bootstrap-5') }}
+    </div>
 
-    {{ $vagas->links('pagination::bootstrap-5') }}
+    
 
 
 @endsection

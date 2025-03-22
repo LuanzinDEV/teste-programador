@@ -1,0 +1,157 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+.conteudo_vaga {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: #f4f4f4;
+}
+
+.conteudo_esquerdo {
+    width: 40%;
+}
+
+.conteudo_esquerdo h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.conteudo_esquerdo p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.conteudo_direito {
+    width: 55%;
+    text-align: justify;
+    color: #444;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Estilização da Tabela */
+.tabela {
+    width: 80vw;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.conteudo-tabela {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto; 
+}
+
+.cabecalho {
+    background: #c3dfe0;
+    color: white;
+    text-align: center;
+}
+
+.cabecalho th {
+    padding: 12px;
+}
+
+th:last-child, td:last-child { 
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 200px; 
+    text-align: center;
+}
+
+.linha:nth-child(even) {
+    background: #f8f9fa;
+}
+
+.celula {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.celula a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.celula a:hover {
+    text-decoration: underline;
+}
+
+/* Estilização do Formulário */
+.formulario {
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.rotulo {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.campo {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.campo:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Botões */
+.botao {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #0056b3;
+}
+
+.pagination {
+    margin-left: 200px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .tabela {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

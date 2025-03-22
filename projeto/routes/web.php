@@ -5,4 +5,10 @@ use App\Http\Controllers\VagaController;
 
 Route::get('/', [VagaController::class, 'listarTodasVagas'])->name('home');
 
-Route::get('/vagas', [VagaController::class, 'listarTodasVagas'])->name('getVagas');
+Route::get('/vaga', [VagaController::class, 'verVaga'])->name('verVaga');
+
+Route::get('/vaga/form', [VagaController::class, 'formVaga'])->name('formVaga');
+
+Route::post('/vaga', [VagaController::class, 'criarVaga'])->name('criarVaga');
+
+
