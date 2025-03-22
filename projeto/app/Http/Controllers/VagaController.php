@@ -37,10 +37,10 @@ class VagaController extends Controller
         return view('criarVaga');
     }
 
-    public function criarVaga(Resquest $resquest){
+    public function criarVaga(Request $request){
         $vaga = VagaModel::create ([
-            'titulo' => $resquest->titulo,
-            'descricao'=> $resquest->descricao,
+            'titulo' => $request->titulo,
+            'descricao'=> $request->descricao,
             'tipo' => $request->tipo
         ]);
 
