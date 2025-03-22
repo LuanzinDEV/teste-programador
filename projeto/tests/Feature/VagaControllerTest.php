@@ -39,6 +39,7 @@ class VagaControllerTest extends TestCase
             'titulo' => 'Vaga Teste',
             'descricao' => 'Descrição da vaga',
             'tipo' => 'Freelancer',
+            'status' => 0
         ];
         $response = $this->post(route('criarVaga'), $data);
         $response->assertStatus(201);

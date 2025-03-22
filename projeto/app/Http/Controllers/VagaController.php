@@ -38,10 +38,22 @@ class VagaController extends Controller
     }
 
     public function criarVaga(Request $request){
+        switch($request->status){
+            case "Aberta": 
+                $status = 1;
+            break;
+            case "Fechada":
+                $status = 0;
+            break;
+            default:
+                $status = 1;
+        }
+
         $vaga = VagaModel::create ([
             'titulo' => $request->titulo,
             'descricao'=> $request->descricao,
-            'tipo' => $request->tipo
+            'tipo' => $request->tipo,
+            'status' =>  $status
         ]);
 
         return response()->json(['message' => 'Vaga criada com sucesso!', 'vaga' => $vaga], 201);

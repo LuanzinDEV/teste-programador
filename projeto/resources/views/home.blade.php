@@ -20,9 +20,20 @@
                         <td class="celula">{{ $vaga->titulo }}</td>
                         <td class="celula">{{ $vaga->descricao }}</td>
                         <td class="celula">{{ $vaga->tipo }}</td>
-                        <td class="celula">{{ $vaga->status }}</td>
                         <td class="celula">
-                            <a href="#" class="acao visualizar" title="Visualizar">
+                            @switch($vaga->status)
+                                @case(1)
+                                    Aberto
+                                    @break
+                                @case(0)
+                                    Fechado
+                                    @break
+                                @default
+                                    Status desconhecido
+                            @endswitch
+                        </td>                        
+                        <td class="celula">
+                            <a href="{{route('verVaga', ['id' => $vaga->id])}}" class="acao visualizar" title="Visualizar">
                                 <i class="fa fa-eye"></i>
                             </a>
     

@@ -25,9 +25,9 @@
                 <div class="form-group">
                     <label for="tipo" class="rotulo">Tipo de Vaga</label>
                     <select id="tipo" name="tipo" class="campo" required>
-                        <option value="Remoto">Remoto</option>
-                        <option value="Presencial">Presencial</option>
-                        <option value="Híbrido">Híbrido</option>
+                        <option value="CLT">CLT</option>
+                        <option value="PJ">PJ</option>
+                        <option value="Freelancer">Freelancer</option>
                     </select>
                 </div>
 

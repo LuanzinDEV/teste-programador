@@ -80,6 +80,7 @@ th:last-child, td:last-child {
 }
 
 .celula {
+    text-align: center;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 }
