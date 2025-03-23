@@ -14,11 +14,8 @@ Route::post('/vaga', [VagaController::class, 'criarVaga'])->name('criarVaga');
 //update Vagas
 Route::get('/vaga/atualizar/form', [VagaController::class, 'formAtulizaVaga'])->name('formAtulizaVaga');
 Route::post('/vaga/atualizar', [VagaController::class, 'atualizaVaga'])->name('atualizaVaga');
+Route::patch('/vagas/{id}/pausar', [VagaController::class, 'pausarVaga'])->name('pausarVaga');
+Route::patch('/vagas/{id}/despausar', [VagaController::class, 'despausarVaga'])->name('despausarVaga');
 
 //delete vagas
-
 Route::delete('/vaga/delete/{id}', [VagaController::class, 'deletarVaga'])->name('deletarVaga');
-
-
-
-

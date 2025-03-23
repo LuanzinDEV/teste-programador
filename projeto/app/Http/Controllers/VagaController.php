@@ -85,7 +85,7 @@ class VagaController extends Controller
         $vaga = VagaModel::find($request->id);
 
         if (!$vaga) {
-            return redirect()->route('home')->with('error', 'Vaga não encontrada!');
+            return redirect()->route('home')->with('error', 'Vaga nao encontrada!');
         }
 
         switch($request->status){
@@ -108,17 +108,48 @@ class VagaController extends Controller
         return redirect()->route('home');
     }
 
-    public function deletarVaga(Request $request)
-    {
+    public function deletarVaga(Request $request){
         $vaga = VagaModel::find($request->id);
 
         if (!$vaga) {
-            return redirect()->route('home')->with('error', 'Vaga não encontrada!');
+            return redirect()->route('home')->with('error', 'Vaga nao encontrada!');
         }
 
         $vaga->delete();
 
         return redirect()->route('home')->with('success', 'Vaga excluída com sucesso!');
+    }
+
+    public function pausarVaga(Request $request){
+        $vaga = VagaModel::find($request->id);
+
+        if (!$vaga) {
+            return redirect()->route('home')->with('error', 'Vaga nao encontrada!');
+        }
+
+        if($vaga->status == 0){
+            return response()->json(['error' => 'Vaga ja esta pausada'], 400);
+        }
+
+        $vaga->update(['status' => 0]);
+
+        return response()->json(['succes' => 'Vaga pausada com sucesso'], 200);
+    }
+
+    public function despausarVaga(Request $request){
+        $vaga = VagaModel::find($request->id);
+
+        if (!$vaga) {
+            return redirect()->route('home')->with('error', 'Vaga nao encontrada!');
+        }
+
+        if($vaga->status == 1){
+            return response()->json(['error' => 'Vaga ja esta despausada'], 400);
+        }
+
+        $vaga->update(['status' => 1]);
+
+        return response()->json(['succes' => 'Vaga despausada com sucesso'], 200);
     }
 
     

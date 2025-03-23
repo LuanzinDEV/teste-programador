@@ -29,9 +29,18 @@
             <p>{{ $vaga->descricao }}</p>
 
             @if (isset($vaga) && isset($vaga->status))
-            <button id="btnCandidatar" data-status="{{ (int) ($vaga->status ?? 1) }}">Candidatar-se</button>
+                <button id="btnCandidatar" data-status="{{ (int) ($vaga->status ?? 1) }}">Candidatar-se</button>
             @endif
+
+            <form action="{{ $vaga->status == 0 ? route('despausarVaga', ['id' => $vaga->id]) : route('pausarVaga', ['id' => $vaga->id]) }}" method="POST" style="margin-top: 20px">
+                @csrf
+                @method('PATCH')
+                <button type="submit" class="btnPausar">
+                    {{ $vaga->status == 0 ? 'Vaga Pausada' : 'Pausar Vaga' }}
+                </button>
+            </form>
         </div>
+              
     </div>
 
     <div id="modalCandidatar" class="modal">
