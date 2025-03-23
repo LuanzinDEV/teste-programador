@@ -18,6 +18,8 @@
             <div class="navbar-links">
                 <a href="{{ route('home') }}" class="navbar-link">Home</a>
                 <a href="{{ route('formVaga') }}" class="navbar-link">Criar Vaga</a>
+                <a href="{{ route('candidatos') }}" class="navbar-link">Candidatos</a>
+                <a href="{{ route('formCandidato') }}" class="navbar-link">Criar Candidatos</a>
             </div>
         </nav>        
     </header>

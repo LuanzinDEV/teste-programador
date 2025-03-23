@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VagaController;
+use App\Http\Controllers\CandidatoController;
 
 //read Vagas
 Route::get('/', [VagaController::class, 'listarTodasVagas'])->name('home');
@@ -19,3 +20,18 @@ Route::patch('/vagas/{id}/despausar', [VagaController::class, 'despausarVaga'])-
 
 //delete vagas
 Route::delete('/vaga/delete/{id}', [VagaController::class, 'deletarVaga'])->name('deletarVaga');
+
+// read Candidatos
+Route::get('/candidatos', [CandidatoController::class, 'listarTodosCandidatos'])->name('candidatos');
+Route::get('/candidato', [CandidatoController::class, 'verCandidato'])->name('verCandidato');
+
+// create Candidatos
+Route::get('/candidato/form', [CandidatoController::class, 'formCandidato'])->name('formCandidato');
+Route::post('/candidato', [CandidatoController::class, 'criarCandidato'])->name('criarCandidato');;
+
+// update Candidatos
+Route::get('/candidato/atualizar/form', [CandidatoController::class, 'formAtualizaCandidato'])->name('formAtualizaCandidato');
+Route::post('/candidato/atualizar', [CandidatoController::class, 'atualizaCandidato'])->name('atualizaCandidato');
+
+// delete Candidatos
+Route::delete('/candidato/delete/{id}', [CandidatoController::class, 'deletarCandidato'])->name('deletarCandidato');

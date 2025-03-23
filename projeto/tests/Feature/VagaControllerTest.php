@@ -7,6 +7,7 @@ use Tests\TestCase;
 
 class VagaControllerTest extends TestCase
 {
+    
 
     public function test_listar_todas_vagas()
     {

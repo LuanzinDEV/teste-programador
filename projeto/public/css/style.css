@@ -37,6 +37,16 @@
 }
 
 .conteudo_vaga {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    background-color: #f4f4f4;
+}
+
+.conteudo_candidato {
+    padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
