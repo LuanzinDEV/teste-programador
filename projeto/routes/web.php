@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VagaController;
 use App\Http\Controllers\CandidatoController;
+use App\Http\Controllers\InscricoesController;
 
 //read Vagas
 Route::get('/', [VagaController::class, 'listarTodasVagas'])->name('home');
@@ -35,3 +36,8 @@ Route::post('/candidato/atualizar', [CandidatoController::class, 'atualizaCandid
 
 // delete Candidatos
 Route::delete('/candidato/delete/{id}', [CandidatoController::class, 'deletarCandidato'])->name('deletarCandidato');
+
+// create incricoes
+
+Route::post('/candidatar/{vaga_id}', [InscricoesController::class, 'candidatarEmUmaVaga'])->name('candidatarEmUmaVaga');
+Route::post('/cadastrar/candidatar', [InscricoesController::class, 'cadastrarECandidatar'])->name('cadastrarECandidatar');

@@ -47,7 +47,9 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h2>Insira seu e-mail</h2>
-            <form id="formCandidatar">
+            <form action="{{ route('candidatarEmUmaVaga', ['vaga_id' => $vaga->id]) }}" id="formCandidatar" method="POST" class="formulario">
+                @csrf
+                
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" required>
                 <button id="btnModal" type="submit">Enviar</button>

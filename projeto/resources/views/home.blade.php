@@ -62,15 +62,29 @@
                                 </button>
                             </form>
     
-                            <a href="#" class="acao candidatar" title="Candidatar-se">
+                            <button id="increver" class="acao candidatar" title="Candidatar-se">
                                 <i class="fa fa-check-circle"></i>
-                            </a>
+                            </button>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
         {{ $vagas->links('pagination::bootstrap-5') }}
+
+        <div id="modalCandidatar" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Insira seu e-mail</h2>
+                <form action="{{ route('candidatarEmUmaVaga', ['vaga_id' => $vaga->id]) }}" id="formCandidatar" method="POST" class="formulario">
+                    @csrf
+                    
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" required>
+                    <button id="btnModal" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     
