@@ -8,9 +8,9 @@
 
 /* Estilos do Navbar */
 .navbar {
-    background-color: #007bff; /* Cor de fundo */
+    background-color: #007bff; 
     padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .navbar-links {
@@ -26,14 +26,14 @@
     font-weight: bold;
     margin: 0 15px;
     padding: 10px 20px;
-    border-radius: 25px; /* Bordas arredondadas para parecer botão */
+    border-radius: 25px; 
     background-color: #007bff;
-    transition: background-color 0.3s, transform 0.3s; /* Adiciona animação */
+    transition: background-color 0.3s, transform 0.3s; /
 }
 
 .navbar-link:hover {
-    background-color: #0056b3; /* Cor ao passar o mouse */
-    transform: scale(1.05); /* Efeito de aumento */
+    background-color: #0056b3; 
+    transform: scale(1.05);
 }
 
 .conteudo_vaga {
@@ -172,6 +172,88 @@ th:last-child, td:last-child {
 .botao:hover {
     background: #0056b3;
 }
+
+
+#btnCandidatar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnCandidatar:hover {
+    background-color: #0056b3;
+}
+
+#btnCandidatar:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+
+/* Estilização do fundo do modal */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caixa do modal */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+}
+
+/* Botão de fechar */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Estilização do input e botão */
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#btnModal {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#btnModal:hover {
+    background-color: #0056b3;
+}
+
 
 .pagination {
     margin-left: 200px;
