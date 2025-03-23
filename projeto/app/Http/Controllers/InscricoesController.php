@@ -10,8 +10,7 @@ use App\Http\Controllers\CandidatoController;
 
 class InscricoesController extends Controller
 {
-    public function candidatarEmUmaVaga(Request $request, $vaga_id)
-    {
+    public function candidatarEmUmaVaga(Request $request, $vaga_id){
         $email = $request->email;
         
         $candidato = CandidatoModel::where('email', $email)->first();
@@ -39,4 +38,35 @@ class InscricoesController extends Controller
         }
     }
     
+    public function verInscricoes(){
+        $inscricoes = InscricaoModel::with('vaga', 'candidato')->paginate(20);
+        
+        return view('inscricoes', compact('inscricoes'));
+    }
+
+    public function filtrarInscricoes(Request $request){
+        $email = $request->input('email');
+
+        if ($email) {
+            $inscricoes = InscricaoModel::whereHas('candidato', function($query) use ($email) {
+                $query->where('email', 'like', '%' . $email . '%');
+            })->paginate(20);
+        } else {
+            $inscricoes = InscricaoModel::paginate(20);
+        }
+
+        return view('inscricoes', compact('inscricoes'));
+    }
+
+    public function deletarInscricao(Request $request){
+        $vaga = InscricaoModel::find($request->id);
+
+        if (!$vaga) {
+            return redirect()->route('verInscricoes')->with('error', 'Incricao nao encontrada!');
+        }
+
+        $vaga->delete();
+
+        return redirect()->route('verInscricoes')->with('success', 'Vaga excluída com sucesso!');
+    }
 }

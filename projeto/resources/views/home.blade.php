@@ -54,7 +54,7 @@
                                 <i class="fa fa-edit"></i>
                             </a>
     
-                            <form action="{{ route('deletarVaga', ['id' => $vaga->id]) }}" method="POST" style="display:inline;">
+                            <form action="{{ route('deletarInscricao', ['id' => $vaga->id]) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="acao excluir" title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')">
@@ -62,7 +62,7 @@
                                 </button>
                             </form>
     
-                            <button id="increver" class="acao candidatar" title="Candidatar-se">
+                            <button title="Candidatar-se">
                                 <i class="fa fa-check-circle"></i>
                             </button>
                         </td>

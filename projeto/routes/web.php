@@ -40,4 +40,12 @@ Route::delete('/candidato/delete/{id}', [CandidatoController::class, 'deletarCan
 // create incricoes
 
 Route::post('/candidatar/{vaga_id}', [InscricoesController::class, 'candidatarEmUmaVaga'])->name('candidatarEmUmaVaga');
-Route::post('/cadastrar/candidatar', [InscricoesController::class, 'cadastrarECandidatar'])->name('cadastrarECandidatar');
+
+// read inscricoes
+
+Route::get('/inscricoes', [InscricoesController::class, 'verInscricoes'])->name('verInscricoes');
+Route::get('/inscricoes/filtrar', [InscricoesController::class, 'filtrarInscricoes'])->name('filtrarInscricoes');
+
+//delete inscricao
+
+Route::delete('/inscricao/delete/{id}', [InscricoesController::class, 'deletarInscricao'])->name('deletarInscricao');

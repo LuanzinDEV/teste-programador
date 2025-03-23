@@ -19,6 +19,7 @@
                 <a href="{{ route('formVaga') }}" class="navbar-link">Criar Vaga</a>
                 <a href="{{ route('candidatos') }}" class="navbar-link">Candidatos</a>
                 <a href="{{ route('formCandidato') }}" class="navbar-link">Criar Candidatos</a>
+                <a href="{{ route('verInscricoes') }}" class="navbar-link">Ver Inscrições</a>
             </div>
         </nav>        
     </header>

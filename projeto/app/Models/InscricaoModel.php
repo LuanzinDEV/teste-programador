@@ -16,10 +16,10 @@ class InscricaoModel extends Model {
     ];
 
     public function candidato() {
-        return $this->belongsTo(Candidato::class);
+        return $this->belongsTo(CandidatoModel::class);
     }
 
     public function vaga() {
-        return $this->belongsTo(Vaga::class);
+        return $this->belongsTo(VagaModel::class);
     }
 }

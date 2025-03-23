@@ -3,14 +3,39 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
+}
+
+#buscar {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#buscar:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+#buscar:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Estilos do Navbar */
 .navbar {
-    background-color: #007bff; 
+    background-color: #333; /* Cor mais neutra */
     padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-links {
@@ -20,38 +45,30 @@
 }
 
 .navbar-link {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 500;
     margin: 0 15px;
-    padding: 10px 20px;
-    border-radius: 25px; 
-    background-color: #007bff;
-    transition: background-color 0.3s, transform 0.3s; /
+    padding: 8px 20px;
+    border-radius: 25px;
+    background-color: transparent;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .navbar-link:hover {
-    background-color: #0056b3; 
+    background-color: #444;
     transform: scale(1.05);
 }
 
-.conteudo_vaga {
+/* Conteúdo */
+.conteudo_vaga, .conteudo_candidato {
     padding: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: auto;
-    background-color: #f4f4f4;
-}
-
-.conteudo_candidato {
-    padding: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: auto;
-    background-color: #f4f4f4;
+    background-color: #f5f5f5; /* Cor mais suave */
 }
 
 .conteudo_esquerdo {
@@ -59,14 +76,12 @@
 }
 
 .conteudo_esquerdo h2 {
-    margin-bottom: 10px;
     color: #333;
 }
 
 .conteudo_esquerdo p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 5px;
+    font-size: 15px;
+    color: #666;
 }
 
 .conteudo_direito {
@@ -79,55 +94,39 @@
 
 /* Estilização da Tabela */
 .tabela {
-    width: 80vw;
+    width: 90vw;
     border-collapse: collapse;
     margin: 20px 0;
-    background: white;
+    background: #fff;
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.conteudo-tabela {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: auto; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra mais suave */
 }
 
 .cabecalho {
-    background: #c3dfe0;
-    color: white;
+    background: #f0f0f0; /* Cor neutra */
+    color: #333;
     text-align: center;
 }
 
 .cabecalho th {
     padding: 12px;
-}
-
-th:last-child, td:last-child { 
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    width: 200px; 
-    text-align: center;
+    font-weight: normal;
 }
 
 .linha:nth-child(even) {
-    background: #f8f9fa;
+    background: #fafafa;
 }
 
 .celula {
     text-align: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    padding: 12px;
+    border-bottom: 1px solid #e0e0e0; /* Cor mais leve para a borda */
 }
 
 .celula a {
     color: #007bff;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .celula a:hover {
@@ -136,80 +135,62 @@ th:last-child, td:last-child {
 
 /* Estilização do Formulário */
 .formulario {
-    width: 100%;
-    max-width: 500px;
-    background: white;
+    max-width: 400px;
+    background: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
 }
 
+th:last-child, td:last-child { 
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    width: 150px; 
+    text-align: center;
+}
+
 .rotulo {
     font-weight: bold;
     margin-bottom: 5px;
-    display: block;
 }
 
 .campo {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 15px;
 }
 
 .campo:focus {
     border-color: #007bff;
     outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
 }
 
 /* Botões */
-.botao {
+.botao, #btnCandidatar, #btnModal {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: none;
     border-radius: 5px;
     background: #007bff;
     color: white;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: 0.3s;
 }
 
-.botao:hover {
-    background: #0056b3;
-}
-
-
-#btnCandidatar {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#btnCandidatar:hover {
+.botao:hover, #btnCandidatar:hover, #btnModal:hover {
     background-color: #0056b3;
 }
 
-#btnCandidatar:disabled {
-    background-color: #ccc;
-    color: #666;
-    cursor: not-allowed;
-    opacity: 0.6;
-}
-
-
 /* Estilização do fundo do modal */
 .modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
     z-index: 1000;
     left: 0;
@@ -243,27 +224,11 @@ th:last-child, td:last-child {
 /* Estilização do input e botão */
 input[type="email"] {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
-#btnModal {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-#btnModal:hover {
-    background-color: #0056b3;
-}
-
 
 .pagination {
     margin-left: 200px;
