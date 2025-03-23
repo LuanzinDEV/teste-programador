@@ -3,6 +3,18 @@
 @section('titulo') Criar Vaga @endsection
 
 @section('conteudo')
+    <div class="mensagem">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @elseif(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+    </div>
+
     <div class="conteudo_vaga">
         <div class="conteudo_esquerdo">
             <h2>Criar Nova Vaga</h2>

@@ -13,9 +13,12 @@
 </head>
 <body>
     <header>
-        <nav class="nav_menu">
-            <li><h4>Home</h4></li>
-        </nav>
+        <nav class="navbar">
+            <div class="navbar-links">
+                <a href="{{ route('home') }}" class="navbar-link">Home</a>
+                <a href="{{ route('formVaga') }}" class="navbar-link">Criar Vaga</a>
+            </div>
+        </nav>        
     </header>
 
     @yield('conteudo')

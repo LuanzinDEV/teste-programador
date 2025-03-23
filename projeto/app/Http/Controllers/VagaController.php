@@ -56,7 +56,8 @@ class VagaController extends Controller
             'status' =>  $status
         ]);
 
-        return response()->json(['message' => 'Vaga criada com sucesso!', 'vaga' => $vaga], 201);
+        session()->flash('success', 'Vaga criada com sucesso!');
+        return redirect()->route('formVaga');
     }
 
     public function formAtulizaVaga(Request $request){
@@ -103,7 +104,21 @@ class VagaController extends Controller
             'status' => $status
         ]);
 
-        return response()->json(['message' => 'Vaga atualizada com sucesso!', 'vaga' => $vaga], 200);
+        session()->flash('success', 'Vaga atualizada com sucesso!');
+        return redirect()->route('home');
+    }
+
+    public function deletarVaga(Request $request)
+    {
+        $vaga = VagaModel::find($request->id);
+
+        if (!$vaga) {
+            return redirect()->route('home')->with('error', 'Vaga não encontrada!');
+        }
+
+        $vaga->delete();
+
+        return redirect()->route('home')->with('success', 'Vaga excluída com sucesso!');
     }
 
     

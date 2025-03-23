@@ -3,6 +3,19 @@
 @section('titulo') Home  @endsection
 
 @section('conteudo')
+
+    <div class="mensagem">
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @elseif(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+    </div>
+
     <div class="conteudo-tabela">
         <table class="tabela">
             <thead class="cabecalho">
@@ -41,9 +54,13 @@
                                 <i class="fa fa-edit"></i>
                             </a>
     
-                            <button type="button" class="acao excluir" title="Excluir" onclick="confirm('Tem certeza que deseja excluir?')">
-                                <i class="fa fa-trash"></i>
-                            </button>
+                            <form action="{{ route('deletarVaga', ['id' => $vaga->id]) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="acao excluir" title="Excluir" onclick="return confirm('Tem certeza que deseja excluir?')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
     
                             <a href="#" class="acao candidatar" title="Candidatar-se">
                                 <i class="fa fa-check-circle"></i>

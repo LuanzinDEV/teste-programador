@@ -4,11 +4,9 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use App\Models\VagaModel;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class VagaControllerTest extends TestCase
 {
-    use RefreshDatabase;
 
     public function test_listar_todas_vagas()
     {
