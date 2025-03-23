@@ -26,10 +26,10 @@
         <table class="tabela">
             <thead class="cabecalho">
                 <tr>
-                    <th>VAGA</th>
-                    <th>CANDIDATO</th>
-                    <th>E-MAIL</th>
-                    <th>DATA DE INSCRIÇÃO</th>
+                    <th><a href="{{ route('verInscricoes', ['campo' => 'vaga_titulo', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">VAGA</a></th>
+                    <th><a href="{{ route('verInscricoes', ['campo' => 'candidato_nome', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">CANDIDATO</a></th>
+                    <th><a href="{{ route('verInscricoes', ['campo' => 'email', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">E-MAIL</a></th>
+                    <th><a href="{{ route('verInscricoes', ['campo' => 'data_inscricao', 'direcao' => $direcao === 'asc' ? 'desc' : 'asc']) }}">DATA DE INSCRIÇÃO</a></th>
                     <th>AÇÕES</th>
                 </tr>
             </thead>
