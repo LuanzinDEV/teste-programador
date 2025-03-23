@@ -58,4 +58,53 @@ class VagaController extends Controller
 
         return response()->json(['message' => 'Vaga criada com sucesso!', 'vaga' => $vaga], 201);
     }
+
+    public function formAtulizaVaga(Request $request){
+        $vaga = VagaModel::find($request->id);
+
+        switch($request->status){
+            case "Aberta": 
+                $status = 1;
+            break;
+            case "Fechada":
+                $status = 0;
+            break;
+            default:
+            $status = null;
+            break;
+        }
+
+        return view('atualizarVaga', [
+            'vaga' => $vaga,
+            'status' => $status
+        ]);
+    }
+
+    public function atualizaVaga(Request $request){
+        $vaga = VagaModel::find($request->id);
+
+        if (!$vaga) {
+            return redirect()->route('home')->with('error', 'Vaga não encontrada!');
+        }
+
+        switch($request->status){
+            case "Aberta": 
+                $status = 1;
+            break;
+            case "Fechada":
+                $status = 0;
+            break;
+        }
+
+        $vaga->update([
+            'titulo' => $request->titulo,
+            'descricao' => $request->descricao,
+            'tipo' => $request->tipo,
+            'status' => $status
+        ]);
+
+        return response()->json(['message' => 'Vaga atualizada com sucesso!', 'vaga' => $vaga], 200);
+    }
+
+    
 }

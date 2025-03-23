@@ -37,7 +37,7 @@
                                 <i class="fa fa-eye"></i>
                             </a>
     
-                            <a href="#" class="acao editar" title="Editar">
+                            <a href="{{route('formAtulizaVaga', ['id' => $vaga->id])}}" class="acao editar" title="Editar">
                                 <i class="fa fa-edit"></i>
                             </a>
     

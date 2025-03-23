@@ -52,4 +52,36 @@ class VagaControllerTest extends TestCase
         $response->assertStatus(200);
         $response->assertViewIs('criarVaga');
     }
+
+    /** @test */
+    public function se_consegue_atulizar_uma_vaga()
+    {
+        $vaga = VagaModel::create([
+            'titulo' => 'Vaga inicial',
+            'descricao' => 'Descrição inicial',
+            'tipo' => 'PJ',
+            'status' => 0
+        ]);
+
+        $response = $this->json('POST', route('atualizaVaga'), [
+            'id' => $vaga->id,
+            'titulo' => 'Vaga atualizada',
+            'descricao' => 'Descrição atualizada',
+            'tipo' => 'PJ',
+            'status' => 'Aberta'
+        ]);
+
+        $response->assertStatus(200)
+                 ->assertJson([
+                     'message' => 'Vaga atualizada com sucesso!',
+                 ]);
+
+        $this->assertDatabaseHas('vagas', [
+            'id' => $vaga->id,
+            'titulo' => 'Vaga atualizada',
+            'descricao' => 'Descrição atualizada',
+            'tipo' => 'PJ',
+            'status' => 1
+        ]);
+    }
 }
